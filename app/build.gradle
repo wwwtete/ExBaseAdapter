@@ -25,7 +25,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation project(path: ':library')
+    implementation project(path: ':ExBaseRecyclerViewAdapterHelperlib')
     implementation project(':material-spinner-1.0.5')
     implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation 'com.android.support:design:27.1.1'
