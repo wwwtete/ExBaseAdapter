@@ -7,13 +7,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.chad.baserecyclerviewadapterhelper.adapter.QuickAdapter;
+import com.chad.baserecyclerviewadapterhelper.adapter.CommonAdapter;
 import com.chad.baserecyclerviewadapterhelper.base.BaseActivity;
 import com.chad.baserecyclerviewadapterhelper.data.DataServer;
 
 public class EmptyViewUseActivity extends BaseActivity implements View.OnClickListener {
     private RecyclerView mRecyclerView;
-    private QuickAdapter mQuickAdapter;
+    private CommonAdapter mQuickAdapter;
     private View notDataView;
     private View errorView;
 
@@ -47,7 +47,7 @@ public class EmptyViewUseActivity extends BaseActivity implements View.OnClickLi
     }
 
     private void initAdapter() {
-        mQuickAdapter = new QuickAdapter(0);
+        mQuickAdapter = new CommonAdapter(0);
         mRecyclerView.setAdapter(mQuickAdapter);
     }
 

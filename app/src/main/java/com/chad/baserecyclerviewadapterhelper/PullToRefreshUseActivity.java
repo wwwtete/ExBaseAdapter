@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.chad.baserecyclerviewadapterhelper.adapter.PullToRefreshAdapter;
+import com.chad.baserecyclerviewadapterhelper.adapter.CommonAdapter;
 import com.chad.baserecyclerviewadapterhelper.base.BaseActivity;
 import com.chad.baserecyclerviewadapterhelper.data.DataServer;
 import com.chad.baserecyclerviewadapterhelper.entity.Status;
@@ -90,7 +90,7 @@ public class PullToRefreshUseActivity extends BaseActivity {
 
     private RecyclerView mRecyclerView;
     private SwipeRefreshLayout mSwipeRefreshLayout;
-    private PullToRefreshAdapter mAdapter;
+    private CommonAdapter mAdapter;
 
     private int mNextRequestPage = 1;
 
@@ -112,13 +112,13 @@ public class PullToRefreshUseActivity extends BaseActivity {
     }
 
     private void initAdapter() {
-        mAdapter = new PullToRefreshAdapter();
+        mAdapter = new CommonAdapter(0);
         mAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
             public void onLoadMoreRequested() {
                 loadMore();
             }
-        });
+        },mRecyclerView);
         mAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
 //        mAdapter.setPreLoadNumber(3);
         mRecyclerView.setAdapter(mAdapter);

@@ -34,7 +34,7 @@ public class ExBaseAdapter<T> extends BaseQuickAdapter<T,ExBaseViewHolder> {
     }
 
     protected ExBaseAdapter(@Nullable List<T> data) {
-        super(null);
+        super(data);
     }
 
     @Override

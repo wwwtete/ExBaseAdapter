@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
 
     defaultConfig {
-        applicationId "com.chad.baserecyclerviewadapterhelper"
+        applicationId "com.chad.exbaserecyclerviewadapterhelper"
         minSdkVersion 14
         targetSdkVersion 27
         versionCode 5

@@ -32,7 +32,7 @@ public abstract class MultipleItemRvAdapter<T,V extends BaseViewHolder> extends 
 
     /**
      * 用于adapter构造函数完成参数的赋值后调用
-     * Called after the assignment of the argument to the adapter constructor
+     * Called after the assignment of the argument to the mAdapter constructor
      */
     public void finishInitialize() {
         mProviderDelegate = new ProviderDelegate();

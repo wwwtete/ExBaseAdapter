@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * Created by wangw on 2018/8/2.
  */
-public abstract class ExBaseItemDraggableAdapter<T> extends ExBaseAdapter<T> {
+public class ExBaseItemDraggableAdapter<T> extends ExBaseAdapter<T> {
 
     private static final int NO_TOGGLE_VIEW = 0;
     protected int mToggleViewId = NO_TOGGLE_VIEW;

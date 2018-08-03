@@ -9,6 +9,10 @@ import com.chad.baserecyclerviewadapterhelper.base.BaseActivity;
 import com.chad.baserecyclerviewadapterhelper.entity.Level0Item;
 import com.chad.baserecyclerviewadapterhelper.entity.Level1Item;
 import com.chad.baserecyclerviewadapterhelper.entity.Person;
+import com.chad.baserecyclerviewadapterhelper.viewholder.Level0VH;
+import com.chad.baserecyclerviewadapterhelper.viewholder.Level1VH;
+import com.chad.baserecyclerviewadapterhelper.viewholder.PersonVH;
+import com.chad.library.adapter.base.ExBaseMultiItemAdapter;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 
 import java.util.ArrayList;
@@ -18,8 +22,13 @@ import java.util.Random;
  * https://github.com/CymChad/BaseRecyclerViewAdapterHelper
  */
 public class ExpandableUseActivity extends BaseActivity {
+
+    public static final int TYPE_LEVEL_0 = 0;
+    public static final int TYPE_LEVEL_1 = 1;
+    public static final int TYPE_PERSON = 2;
+
     RecyclerView mRecyclerView;
-    ExpandableItemAdapter adapter;
+    ExBaseMultiItemAdapter<MultiItemEntity> adapter;
     ArrayList<MultiItemEntity> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +40,10 @@ public class ExpandableUseActivity extends BaseActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.rv);
 
         list = generateData();
-        adapter = new ExpandableItemAdapter(list);
+        adapter = new ExBaseMultiItemAdapter(list);
+        adapter.addItemType(TYPE_LEVEL_0, Level0VH.class);
+        adapter.addItemType(TYPE_LEVEL_1, Level1VH.class);
+        adapter.addItemType(TYPE_PERSON, PersonVH.class);
 
         final GridLayoutManager manager = new GridLayoutManager(this, 3);
         manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {

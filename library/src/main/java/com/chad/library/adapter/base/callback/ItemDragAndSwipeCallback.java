@@ -6,8 +6,8 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 
 import com.chad.library.R;
-import com.chad.library.adapter.base.BaseItemDraggableAdapter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.ExBaseItemDraggableAdapter;
 
 /**
  * Created by luoxw on 2016/6/20.
@@ -16,7 +16,7 @@ public class ItemDragAndSwipeCallback extends ItemTouchHelper.Callback {
 
 //    private static final String TAG = ItemDragAndSwipeCallback.class.getSimpleName();
 
-    private BaseItemDraggableAdapter mAdapter;
+    private ExBaseItemDraggableAdapter mAdapter;
 
     private float mMoveThreshold = 0.1f;
     private float mSwipeThreshold = 0.7f;
@@ -24,7 +24,7 @@ public class ItemDragAndSwipeCallback extends ItemTouchHelper.Callback {
     private int mDragMoveFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN | ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
     private int mSwipeMoveFlags = ItemTouchHelper.END;
 
-    public ItemDragAndSwipeCallback(BaseItemDraggableAdapter adapter) {
+    public ItemDragAndSwipeCallback(ExBaseItemDraggableAdapter adapter) {
         mAdapter = adapter;
     }
 

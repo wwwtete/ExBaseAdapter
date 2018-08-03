@@ -245,8 +245,8 @@ public abstract class SimpleClickListener implements RecyclerView.OnItemTouchLis
      * been clicked.
      *
      * @param view     The view within the AdapterView that was clicked (this
-     *                 will be a view provided by the adapter)
-     * @param position The position of the view in the adapter.
+     *                 will be a view provided by the mAdapter)
+     * @param position The position of the view in the mAdapter.
      */
     public abstract void onItemClick(BaseQuickAdapter adapter, View view, int position);
 
@@ -255,7 +255,7 @@ public abstract class SimpleClickListener implements RecyclerView.OnItemTouchLis
      * click and held
      *
      * @param view     The view whihin the AbsListView that was clicked
-     * @param position The position of the view int the adapter
+     * @param position The position of the view int the mAdapter
      * @return true if the callback consumed the long click ,false otherwise
      */
     public abstract void onItemLongClick(BaseQuickAdapter adapter, View view, int position);

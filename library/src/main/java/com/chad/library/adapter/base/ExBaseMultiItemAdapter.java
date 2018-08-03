@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by wangw on 2018/8/2.
  */
-public abstract class ExBaseMultiItemAdapter<T extends MultiItemEntity> extends ExBaseAdapter<T> {
+public class ExBaseMultiItemAdapter<T extends MultiItemEntity> extends ExBaseAdapter<T> {
 
     private SparseArray<Class<? extends ExBaseViewHolder>> mVHs;
 
@@ -51,7 +51,7 @@ public abstract class ExBaseMultiItemAdapter<T extends MultiItemEntity> extends 
         return mVHs.get(viewType, DefaultVH.class);
     }
 
-    protected void addItemType(int type, Class<? extends ExBaseViewHolder> clz) {
+    public void addItemType(int type, Class<? extends ExBaseViewHolder> clz) {
         if (mVHs == null) {
             mVHs = new SparseArray<>();
         }

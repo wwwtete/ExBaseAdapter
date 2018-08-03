@@ -1,17 +1,17 @@
 package com.chad.baserecyclerviewadapterhelper;
 
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.view.ViewGroup;
 
-import com.chad.baserecyclerviewadapterhelper.adapter.MultipleItemQuickAdapter;
 import com.chad.baserecyclerviewadapterhelper.base.BaseActivity;
 import com.chad.baserecyclerviewadapterhelper.data.DataServer;
 import com.chad.baserecyclerviewadapterhelper.entity.MultipleItem;
+import com.chad.baserecyclerviewadapterhelper.viewholder.MultipleItemTextImgVH;
+import com.chad.baserecyclerviewadapterhelper.viewholder.MultipleItemImgVH;
+import com.chad.baserecyclerviewadapterhelper.viewholder.MultipleItemTextVH;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.ExBaseMultiItemAdapter;
 
 import java.util.List;
 
@@ -30,7 +30,13 @@ public class MultipleItemUseActivity extends BaseActivity {
         setBackBtn();
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_list);
         final List<MultipleItem> data = DataServer.getMultipleItemData();
-        final MultipleItemQuickAdapter multipleItemAdapter = new MultipleItemQuickAdapter(this, data);
+        final ExBaseMultiItemAdapter<MultipleItem> multipleItemAdapter = new ExBaseMultiItemAdapter<MultipleItem>(data);
+
+        //添加多类型支持
+        multipleItemAdapter.addItemType(MultipleItem.TEXT, MultipleItemTextVH.class);
+        multipleItemAdapter.addItemType(MultipleItem.IMG, MultipleItemImgVH.class);
+        multipleItemAdapter.addItemType(MultipleItem.IMG_TEXT, MultipleItemTextImgVH.class);
+
         final GridLayoutManager manager = new GridLayoutManager(this, 4);
         mRecyclerView.setLayoutManager(manager);
         multipleItemAdapter.setSpanSizeLookup(new BaseQuickAdapter.SpanSizeLookup() {

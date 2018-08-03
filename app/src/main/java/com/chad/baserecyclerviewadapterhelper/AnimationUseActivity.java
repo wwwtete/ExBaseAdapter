@@ -25,7 +25,6 @@ import com.kyleduo.switchbutton.SwitchButton;
  */
 public class AnimationUseActivity extends Activity {
     private RecyclerView mRecyclerView;
-//    private AnimationAdapter mAnimationAdapter;
     private ExBaseAdapter<Status> mAnimationAdapter;
     private ImageView mImgBtn;
     private int mFirstPageItemCount = 3;
@@ -54,7 +53,6 @@ public class AnimationUseActivity extends Activity {
     }
 
     private void initAdapter() {
-//        mAnimationAdapter = new AnimationAdapter();
         mAnimationAdapter = new ExBaseAdapter<Status>(AnimationVH.class, DataServer.getSampleData(100));
         mAnimationAdapter.openLoadAnimation();
         mAnimationAdapter.setNotDoAnimationCount(mFirstPageItemCount);

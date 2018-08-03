@@ -500,7 +500,7 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
 
 
     /**
-     * insert  a item associated with the specified position of adapter
+     * insert  a item associated with the specified position of mAdapter
      *
      * @param position
      * @param item
@@ -532,7 +532,7 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
     }
 
     /**
-     * remove the item associated with the specified position of adapter
+     * remove the item associated with the specified position of mAdapter
      *
      * @param position
      */
@@ -615,7 +615,7 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
     /**
      * Get the data item associated with the specified position in the data set.
      *
-     * @param position Position of the item whose data we want within the adapter's
+     * @param position Position of the item whose data we want within the mAdapter's
      *                 data set.
      * @return The data at the specified position.
      */
@@ -819,7 +819,7 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
     }
 
     /**
-     * Called when a view created by this adapter has been attached to a window.
+     * Called when a view created by this mAdapter has been attached to a window.
      * simple to solve item will layout using all
      * {@link #setFullSpan(RecyclerView.ViewHolder)}
      *
@@ -1025,7 +1025,7 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
     }
 
     /**
-     * if you want to use subclass of BaseViewHolder in the adapter,
+     * if you want to use subclass of BaseViewHolder in the mAdapter,
      * you must override the method to create new ViewHolder.
      *
      * @param view view
@@ -1405,7 +1405,7 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
     }
 
     /**
-     * set emptyView show if adapter is empty and want to show headview and footview
+     * set emptyView show if mAdapter is empty and want to show headview and footview
      * Call before {@link RecyclerView#setAdapter(RecyclerView.Adapter)}
      *
      * @param isHeadAndEmpty
@@ -1426,11 +1426,11 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
     }
 
     /**
-     * When the current adapter is empty, the BaseQuickAdapter can display a special view
+     * When the current mAdapter is empty, the BaseQuickAdapter can display a special view
      * called the empty view. The empty view is used to provide feedback to the user
      * that no data is available in this AdapterView.
      *
-     * @return The view to show if the adapter is empty.
+     * @return The view to show if the mAdapter is empty.
      */
     public View getEmptyView() {
         return mEmptyLayout;
@@ -1626,7 +1626,7 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
     /**
      * Get the row id associated with the specified position in the list.
      *
-     * @param position The position of the item within the adapter's data set whose row id we want.
+     * @param position The position of the item within the mAdapter's data set whose row id we want.
      * @return The id of the item at the specified position.
      */
     @Override
@@ -1764,7 +1764,7 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
      * @param position position of the item, which includes the header layout count.
      * @param init     whether you are initializing the recyclerView or not.
      *                 if <strong>true</strong>, it won't notify recyclerView to redraw UI.
-     * @return the number of items that have been added to the adapter.
+     * @return the number of items that have been added to the mAdapter.
      */
     public int expandAll(int position, boolean init) {
         return expandAll(position, true, !init);
@@ -1929,7 +1929,7 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
          * click and held
          *
          * @param view     The view whihin the ItemView that was clicked
-         * @param position The position of the view int the adapter
+         * @param position The position of the view int the mAdapter
          */
         void onItemChildClick(BaseQuickAdapter adapter, View view, int position);
     }
@@ -1945,7 +1945,7 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
          * click and held
          *
          * @param view     The childView whihin the itemView that was clicked and held.
-         * @param position The position of the view int the adapter
+         * @param position The position of the view int the mAdapter
          * @return true if the callback consumed the long click ,false otherwise
          */
         boolean onItemChildLongClick(BaseQuickAdapter adapter, View view, int position);
@@ -1962,7 +1962,7 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
          *
          * @param adapter  the adpater
          * @param view     The view whihin the RecyclerView that was clicked and held.
-         * @param position The position of the view int the adapter
+         * @param position The position of the view int the mAdapter
          * @return true if the callback consumed the long click ,false otherwise
          */
         boolean onItemLongClick(BaseQuickAdapter adapter, View view, int position);
@@ -1981,8 +1981,8 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
          *
          * @param adapter  the adpater
          * @param view     The itemView within the RecyclerView that was clicked (this
-         *                 will be a view provided by the adapter)
-         * @param position The position of the view in the adapter.
+         *                 will be a view provided by the mAdapter)
+         * @param position The position of the view in the mAdapter.
          */
         void onItemClick(BaseQuickAdapter adapter, View view, int position);
     }

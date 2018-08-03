@@ -11,11 +11,12 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.View;
 
-import com.chad.baserecyclerviewadapterhelper.adapter.ItemDragAdapter;
 import com.chad.baserecyclerviewadapterhelper.base.BaseActivity;
 import com.chad.baserecyclerviewadapterhelper.util.ToastUtils;
+import com.chad.baserecyclerviewadapterhelper.viewholder.ItemDragVH;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.chad.library.adapter.base.ExBaseItemDraggableAdapter;
 import com.chad.library.adapter.base.callback.ItemDragAndSwipeCallback;
 import com.chad.library.adapter.base.listener.OnItemDragListener;
 import com.chad.library.adapter.base.listener.OnItemSwipeListener;
@@ -30,7 +31,7 @@ public class ItemDragAndSwipeUseActivity extends BaseActivity {
     private static final String TAG = ItemDragAndSwipeUseActivity.class.getSimpleName();
     private RecyclerView mRecyclerView;
     private List<String> mData;
-    private ItemDragAdapter mAdapter;
+    private ExBaseItemDraggableAdapter<String> mAdapter;
     private ItemTouchHelper mItemTouchHelper;
     private ItemDragAndSwipeCallback mItemDragAndSwipeCallback;
 
@@ -94,7 +95,7 @@ public class ItemDragAndSwipeUseActivity extends BaseActivity {
             }
         };
 
-        mAdapter = new ItemDragAdapter(mData);
+        mAdapter = new ExBaseItemDraggableAdapter<String>(ItemDragVH.class,mData);
         mItemDragAndSwipeCallback = new ItemDragAndSwipeCallback(mAdapter);
         mItemTouchHelper = new ItemTouchHelper(mItemDragAndSwipeCallback);
         mItemTouchHelper.attachToRecyclerView(mRecyclerView);
@@ -110,7 +111,7 @@ public class ItemDragAndSwipeUseActivity extends BaseActivity {
         mRecyclerView.setAdapter(mAdapter);
 //        mRecyclerView.addOnItemTouchListener(new OnItemClickListener() {
 //            @Override
-//            public void onSimpleItemClick(final BaseQuickAdapter adapter, final View view, final int position) {
+//            public void onSimpleItemClick(final BaseQuickAdapter mAdapter, final View view, final int position) {
 //                ToastUtils.showShortToast("点击了" + position);
 //            }
 //        });

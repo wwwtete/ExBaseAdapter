@@ -6,16 +6,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.chad.baserecyclerviewadapterhelper.R;
-import com.chad.baserecyclerviewadapterhelper.entity.MySection;
-import com.chad.baserecyclerviewadapterhelper.entity.Video;
+import com.chad.baserecyclerviewadapterhelper.entity.MultipleItem;
 
 import butterknife.BindView;
 
 /**
- * Created by wangw on 2018/8/2.
+ * Created by wangw on 2018/8/3.
  */
 
-public class SetionItemVH extends BaseVH<MySection> {
+public class MultipleItemTextImgVH extends BaseVH<MultipleItem> {
+
 
     @BindView(R.id.iv)
     ImageView mIv;
@@ -24,23 +24,22 @@ public class SetionItemVH extends BaseVH<MySection> {
     @BindView(R.id.card_view)
     CardView mCardView;
 
-    public SetionItemVH(ViewGroup parent) {
-        super(parent, R.layout.item_section_content);
+    public MultipleItemTextImgVH(ViewGroup parent) {
+        super(parent, R.layout.item_img_text_view);
+
     }
 
     @Override
-    protected void onBindData(MySection item) {
-        Video video = (Video) item.getData();
+    protected void onBindData(MultipleItem item) {
         switch (getLayoutPosition() %
                 2) {
             case 0:
-                mIv.setImageResource(R.mipmap.m_img1);
+                mIv.setImageResource(R.mipmap.animation_img1);
                 break;
             case 1:
-                mIv.setImageResource(R.mipmap.m_img2);
+                mIv.setImageResource(R.mipmap.animation_img2);
                 break;
 
         }
-        mTv.setText(video.getName());
     }
 }
