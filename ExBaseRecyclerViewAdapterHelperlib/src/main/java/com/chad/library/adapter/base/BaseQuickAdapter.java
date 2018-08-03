@@ -548,6 +548,8 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
      * change data
      */
     public void setData(@IntRange(from = 0) int index, @NonNull T data) {
+        if (data == null)
+            return;
         mData.set(index, data);
         notifyItemChanged(index + getHeaderLayoutCount());
     }
@@ -559,6 +561,8 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
      * @param newData  the new data collection
      */
     public void addData(@IntRange(from = 0) int position, @NonNull Collection<? extends T> newData) {
+        if (newData == null)
+            return;
         mData.addAll(position, newData);
         notifyItemRangeInserted(position + getHeaderLayoutCount(), newData.size());
         compatibilityDataSizeChanged(newData.size());
@@ -570,6 +574,8 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
      * @param newData the new data collection
      */
     public void addData(@NonNull Collection<? extends T> newData) {
+        if (newData == null)
+            return;
         mData.addAll(newData);
         notifyItemRangeInserted(mData.size() - newData.size() + getHeaderLayoutCount(), newData.size());
         compatibilityDataSizeChanged(newData.size());
@@ -585,7 +591,8 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
         // 不是同一个引用才清空列表
         if (data != mData) {
             mData.clear();
-            mData.addAll(data);
+            if (data != null)
+                mData.addAll(data);
         }
         notifyDataSetChanged();
     }
