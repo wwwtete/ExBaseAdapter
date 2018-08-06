@@ -31,8 +31,6 @@ public class AnimationVH extends ExBaseViewHolder<Status> {
         //R.layout.layout_animation 是自定义的布局文件
         super(parent, R.layout.layout_animation);
         ButterKnife.bind(this,itemView);
-        addOnClickListener(R.id.img);
-        addOnClickListener(R.id.tweetName);
     }
 
     /**
