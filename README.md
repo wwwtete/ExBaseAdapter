@@ -21,7 +21,7 @@ allprojects {
 ```java
 dependencies {
             //ExBaseAdapter
-	        implementation 'com.github.wwwtete:ExBaseRecyclerViewAdapterHelper:v1.0.0'
+	    implementation 'com.github.wwwtete:ExBaseRecyclerViewAdapterHelper:v1.0.0'
 }
 ```
 ### Step 3.在代码中自定义ViewHolder
@@ -54,7 +54,7 @@ public class AnimationVH extends ExBaseViewHolder<Status> {
     **/
     @Override
     protected void onBindData(Status status) {
-
+        mTweetName.setText(status.getText());
         switch (getLayoutPosition() % 3) {
             case 0:
                 mImg.setImageResource(R.mipmap.animation_img1);
