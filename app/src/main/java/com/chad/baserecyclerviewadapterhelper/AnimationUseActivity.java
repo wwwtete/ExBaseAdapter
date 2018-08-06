@@ -18,6 +18,8 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.kyleduo.switchbutton.SwitchButton;
 
+import java.util.List;
+
 /**
  * https://github.com/CymChad/BaseRecyclerViewAdapterHelper
  * <p>
@@ -53,7 +55,8 @@ public class AnimationUseActivity extends Activity {
     }
 
     private void initAdapter() {
-        mAnimationAdapter = new ExBaseAdapter<Status>(AnimationVH.class, DataServer.getSampleData(100));
+        List<Status> list = DataServer.getSampleData(100);
+        mAnimationAdapter = new ExBaseAdapter<Status>(AnimationVH.class, list);
         mAnimationAdapter.openLoadAnimation();
         mAnimationAdapter.setNotDoAnimationCount(mFirstPageItemCount);
         mAnimationAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
