@@ -21,7 +21,7 @@ allprojects {
 ```java
 dependencies {
             //ExBaseAdapter
-	    implementation 'com.github.wwwtete:ExBaseRecyclerViewAdapterHelper:v1.0.0'
+	    implementation 'com.github.wwwtete:ExBaseAdapter:v1.0.0'
 }
 ```
 ### Step 3.在代码中自定义ViewHolder
