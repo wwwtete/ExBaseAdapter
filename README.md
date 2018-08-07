@@ -1,6 +1,6 @@
-# ExBaseRecyclerViewAdapterHelper
+# ExBaseAdapter
 
-ExBaseRecyclerViewAdapterHelper是在BRVAH 的基础上改动而来的,
+ExBaseAdapter是在BRVAH 的基础上改动而来的,
 主要改动是将 ViewHolder与layout布局文件进行绑定，
 Adapter不需要感知布局文件的存在只需要传入相应的ExBaseViewHolder子类Class并在onBindData方法中实现数据绑定，
 在使用时直接new ExBaseAdapter即可。
@@ -21,7 +21,7 @@ allprojects {
 ```java
 dependencies {
             //ExBaseAdapter
-	        implementation 'com.github.wwwtete:ExBaseRecyclerViewAdapterHelper:v1.0.0'
+	    implementation 'com.github.wwwtete:ExBaseAdapter:v1.0.0'
 }
 ```
 ### Step 3.在代码中自定义ViewHolder
@@ -54,7 +54,7 @@ public class AnimationVH extends ExBaseViewHolder<Status> {
     **/
     @Override
     protected void onBindData(Status status) {
-
+        mTweetName.setText(status.getText());
         switch (getLayoutPosition() % 3) {
             case 0:
                 mImg.setImageResource(R.mipmap.animation_img1);
