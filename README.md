@@ -1,4 +1,4 @@
-# ExBaseRecyclerViewAdapterHelper
+# ExBaseAdapter
 
 ExBaseRecyclerViewAdapterHelper是在BRVAH 的基础上改动而来的,
 主要改动是将 ViewHolder与layout布局文件进行绑定，
