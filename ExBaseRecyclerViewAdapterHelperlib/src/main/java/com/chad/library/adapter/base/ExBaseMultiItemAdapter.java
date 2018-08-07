@@ -1,12 +1,14 @@
 package com.chad.library.adapter.base;
 
 import android.support.annotation.IntRange;
+import android.support.annotation.Nullable;
 import android.util.SparseArray;
 import android.view.ViewGroup;
 
 import com.chad.library.adapter.base.entity.IExpandable;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -28,6 +30,21 @@ public class ExBaseMultiItemAdapter<T extends MultiItemEntity> extends ExBaseAda
     public ExBaseMultiItemAdapter(List<T> data) {
         super(data);
     }
+
+    public ExBaseMultiItemAdapter(@Nullable List<T> data, SparseArray<Class<? extends ExBaseViewHolder>> VHs) {
+        super(data);
+        mVHs = VHs;
+    }
+
+    public ExBaseMultiItemAdapter() {
+        super(Collections.EMPTY_LIST);
+    }
+
+    public ExBaseMultiItemAdapter(SparseArray<Class<? extends ExBaseViewHolder>> VHs) {
+        super(Collections.EMPTY_LIST);
+        mVHs = VHs;
+    }
+
 
     @Override
     protected int getDefItemViewType(int position) {
