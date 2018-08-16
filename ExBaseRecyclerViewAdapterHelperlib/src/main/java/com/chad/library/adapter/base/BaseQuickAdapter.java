@@ -135,7 +135,7 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
     public static final int FOOTER_VIEW = 0x00000333;
     public static final int EMPTY_VIEW = 0x00000555;
 
-    private RecyclerView mRecyclerView;
+    protected RecyclerView mRecyclerView;
 
     protected RecyclerView getRecyclerView() {
         return mRecyclerView;

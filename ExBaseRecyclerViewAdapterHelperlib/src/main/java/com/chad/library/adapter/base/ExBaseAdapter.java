@@ -1,6 +1,7 @@
 package com.chad.library.adapter.base;
 
 import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -51,22 +52,22 @@ public class ExBaseAdapter<T> extends BaseQuickAdapter<T,ExBaseViewHolder> {
     }
 
     protected ExBaseViewHolder createBaseViewHolder(ViewGroup parent, Class<? extends ExBaseViewHolder> clz) {
+        Exception error = null;
         if (clz != null) {
             try {
                 Constructor<? extends ExBaseViewHolder> constructor = clz.getDeclaredConstructor(ViewGroup.class);
                 constructor.setAccessible(true);
                 return constructor.newInstance(parent);
-            } catch (NoSuchMethodException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InstantiationException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
+                error = e;
             }
         }
-        return new DefaultVH(parent);
+        if (error != null){
+            return new DefaultVH(parent,error);
+        }else {
+            return new DefaultVH(parent);
+        }
     }
 
     @Override
