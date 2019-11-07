@@ -1,6 +1,6 @@
 package com.chad.baserecyclerviewadapterhelper.viewholder;
 
-import android.support.v7.widget.CardView;
+import androidx.cardview.widget.CardView;
 import android.text.TextPaint;
 import android.text.style.ClickableSpan;
 import android.view.View;

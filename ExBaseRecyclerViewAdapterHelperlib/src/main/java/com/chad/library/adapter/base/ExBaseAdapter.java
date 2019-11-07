@@ -1,14 +1,13 @@
 package com.chad.library.adapter.base;
 
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.chad.library.adapter.base.util.MultiTypeDelegate;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 /**
